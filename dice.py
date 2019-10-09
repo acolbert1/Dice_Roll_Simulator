@@ -9,7 +9,7 @@
 #2. Allow the user to quit, or roll again
 #Allow the user to select the number of dice to be drawn on screen(1-4) 2. Add up the total of the dice and display it
 
-
+import random
 
 class dice_role_simulator:
     
@@ -27,18 +27,23 @@ class dice_role_simulator:
         
     def number_of_rolls(self):
         rolls = input("How many rolls will you do this round? ")
+        
 
         while not rolls.isdigit():
             print("This is not a number")
             return self.number_of_rolls()
         else:
             print("This round will have " + rolls + " rolls")
+            rolls = int(rolls)
+            random_roll = str(random.randint(1, rolls))
+            print(random_roll)
+            
+            
+    
 
        
-    print(sides)
-    print(rolls)
-        
-       
+    #randomint between 1 and the number of sides
+    
        
         # # if not user_input.isdigit():
         # #     print("This is not a number please enter a number")
