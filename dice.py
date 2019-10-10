@@ -12,35 +12,53 @@
 import random
 
 class dice_role_simulator:
+
+    def __init__(self):
+        self.dice_sides = 0
+        self.roll_count = 0
+        self.roll_list = []
     
     def number_of_sides(self):
         sides = input("How many sides does your dice have? " )
-
         while not sides.isdigit():
             print("This is not a number")
-            return self.number_of_sides()
+            self.number_of_sides()
         else:
-            print("Your dice this round will have " + sides + " sides")
+            self.dice_sides = sides
+            print("Your dice this round will have " + self.dice_sides + " sides")
             
         self.number_of_rolls()
-
         
     def number_of_rolls(self):
-        rolls = input("How many rolls will you do this round? ")
         
-
+        rolls = input("How many rolls will you do this round? ")
         while not rolls.isdigit():
             print("This is not a number")
             return self.number_of_rolls()
         else:
-            print("This round will have " + rolls + " rolls")
-            rolls = int(rolls)
-            random_roll = str(random.randint(1, rolls))
-            print(random_roll)
-            
-            
-    
+            self.roll_count = int(rolls)
+            print("This round will have " + str(self.roll_count) + " rolls")
+            print(self.roll_count)
+        self.add_roll_count()
 
+    def add_roll_count(self):
+        print(self.roll_count)
+        starting_roll_count = 0
+        
+        while starting_roll_count < self.roll_count:
+            random_roll = random.randint(1, int(self.dice_sides))
+            self.roll_list.append(random_roll)
+            starting_roll_count = starting_roll_count + 1
+        print(self.roll_list)
+        
+               
+            
+           
+    
+#have the user choose a number for side of die.
+#have the user choose how many times you want to roll the die.
+#throw the die x amount of times, for each roll return a random number between 1 and the number of sides.
+#save the random number and roll # to a list that gets printed every loop
        
     #randomint between 1 and the number of sides
     
