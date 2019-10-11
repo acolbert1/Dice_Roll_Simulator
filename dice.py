@@ -50,6 +50,15 @@ class dice_role_simulator:
             self.roll_list.append(random_roll)
             starting_roll_count = starting_roll_count + 1
         print(self.roll_list)
+        for number in self.roll_list:
+            count = self.roll_list.count(number)
+            # if item in number:
+            #     print(item)
+            print(count)
+            # print("x showed up x times" + str(count))
+        # self.add_roll_count
+    
+ 
         
                
             
