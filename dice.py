@@ -17,6 +17,7 @@ class dice_role_simulator:
         self.dice_sides = 0
         self.roll_count = 0
         self.roll_list = []
+        self.my_dict = {}
     
     def number_of_sides(self):
         sides = input("How many sides does your dice have? " )
@@ -50,6 +51,7 @@ class dice_role_simulator:
             self.roll_list.append(random_roll)
             starting_roll_count = starting_roll_count + 1
         print(self.roll_list)
+
         for number in self.roll_list:
             count = self.roll_list.count(number)
             # if item in number:
@@ -57,44 +59,40 @@ class dice_role_simulator:
             print(count)
             # print("x showed up x times" + str(count))
         # self.add_roll_count
-    
- 
-        
-               
-            
-           
-    
-#have the user choose a number for side of die.
-#have the user choose how many times you want to roll the die.
-#throw the die x amount of times, for each roll return a random number between 1 and the number of sides.
-#save the random number and roll # to a list that gets printed every loop
-       
-    #randomint between 1 and the number of sides
-    
-       
-        # # if not user_input.isdigit():
-        # #     print("This is not a number please enter a number")
-        # #     return self.dice_roll() 
-        # # else:
-        # #     print("Your dice this round will have " + user_input + " sides")
-            
-        
-        # while not number_of_sides.isdigit():
-        #     print("This is not a number")
-        #     return self.dice_roll()
+        self.unique_numbers()
 
-        # if number_of_sides.isdigit():
-        #     print("Your dice this round will have " + number_of_sides + " sides")
+    def unique_numbers(self):
+        
+        for number in self.roll_list:
+            if number in self.my_dict:
+                self.my_dict[number] += 1
             
-        # while not number_of_sides.isdigit():
-        #     print("This is not a number")
-        #     return self.dice_roll()
+            if number not in self.my_dict:
+                self.my_dict[number] = 1
+
+        # self.unique_numbers()
+        print(self.my_dict)
+ 
+    
+    # def restart_roll(self):
+    #     restart_game = input("Would you like to play another round of dice roll? ")
+    #     if restart_game == "yes" or restart_game == "y":
+    #         print("Let's roll again!")
+    #         self.number_of_sides()
+    #     else:
+    #         if restart_game != "yes" or restart_game != "y":
+    #             print("Ending game")
+
+    
 
 
 dice_roll_game = dice_role_simulator()
 dice_roll_game.number_of_sides()
 
+    
 
 
 
-
+#if the dice side is 3, and i roll the dice 5 times, and 3 comes up twice, it needs to print to the console that the number 3 appeared a total of 2 times. 
+#once the round is completed, parse through the items and display their percentages apeared in the list in relation to the unique numbers. For example if the dice side is 4 and you roll it 10 times and 4 appears twice, that means that the number 4 appeared 20% of that round.    
+#right now it is able to count the number of times a number is in the list, but i need to figure out how to make it unique and display that. 
