@@ -38,12 +38,12 @@ class dice_role_simulator:
             return self.number_of_rolls()
         else:
             self.roll_count = int(rolls)
-            print("This round will have " + str(self.roll_count) + " rolls")
-            print(self.roll_count)
+            print("This round will have " + str(self.roll_count) + " rolls. Let's begin.")
+            
         self.add_roll_count()
 
     def add_roll_count(self):
-        print(self.roll_count)
+        
         starting_roll_count = 0
         
         while starting_roll_count < self.roll_count:
@@ -56,7 +56,7 @@ class dice_role_simulator:
             count = self.roll_list.count(number)
             # if item in number:
             #     print(item)
-            print(count)
+            
             # print("x showed up x times" + str(count))
         # self.add_roll_count
         self.unique_numbers()
@@ -72,6 +72,33 @@ class dice_role_simulator:
 
         # self.unique_numbers()
         print(self.my_dict)
+        self.percentage()
+        
+    
+    def percentage(self):
+        
+        for value in self.my_dict.values():
+            saved = (value*100) / self.roll_count
+            
+            print(saved)
+            if saved == .01:
+                print(int(saved))
+            else:
+                print("{:.2f}".format(saved))
+        return value
+        
+
+        
+
+#for every saved value that 2nd decimal place is greater than 0, print xx.xx. If the 2nd decimal place is == 0 then print it without the 2 decimal places. 
+
+
+        # self.roll_list = list(map(int, self.roll_list))
+        
+        # for x in self.roll_list:
+        #     saved = x / self.roll_count
+        #     print(saved)
+        
  
     
     # def restart_roll(self):
@@ -91,8 +118,3 @@ dice_roll_game.number_of_sides()
 
     
 
-
-
-#if the dice side is 3, and i roll the dice 5 times, and 3 comes up twice, it needs to print to the console that the number 3 appeared a total of 2 times. 
-#once the round is completed, parse through the items and display their percentages apeared in the list in relation to the unique numbers. For example if the dice side is 4 and you roll it 10 times and 4 appears twice, that means that the number 4 appeared 20% of that round.    
-#right now it is able to count the number of times a number is in the list, but i need to figure out how to make it unique and display that. 
